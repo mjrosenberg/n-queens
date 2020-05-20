@@ -53,7 +53,7 @@ describe('Board', function() {
       [0, 0, 0, 0],
       [0, 0, 0, 0]
     ]);
-
+    console.log("diagonal not starting on row 1");
     verifyConflictTypes(['majorDiagonal', 'queens'], [
       [0, 0, 0, 0],
       [1, 0, 0, 0],
