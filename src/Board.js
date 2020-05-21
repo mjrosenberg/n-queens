@@ -82,9 +82,7 @@
       var row = this.get(rowIndex);
       var numItems = 0;
       for (item of row) {
-        if (item === 1) {
-          numItems += 1;
-        }
+        numItems += item;
       }
       return (numItems > 1);
     },
@@ -107,11 +105,9 @@
     // test if a specific column on this board contains a conflict
     hasColConflictAt: function(colIndex) {
       var numItems = 0;
-      for (i = 0; i < this.get('n'); i++) {
+      for (var i = 0; i < this.get('n'); i++) {
         var row = this.get(i);
-        if (row[colIndex] !== 0) {
-          numItems += 1;
-        }
+        numItems += row[colIndex];
       }
       return (numItems > 1);
     },
@@ -119,7 +115,7 @@
     // test if any columns on this board contain conflicts
     hasAnyColConflicts: function() {
       var ans = false;
-      for (i = 0; i < this.get('n'); i++) {
+      for (var i = 0; i < this.get('n'); i++) {
         ans = this.hasColConflictAt(i);
         if (ans === true) {
           return true;
@@ -141,7 +137,7 @@
       var extra = 0; //adding this varaible so I can start my loop on a lower down row if that is where the diagonal's top left corner is.
       while (extra < this.get('n')) { //checks all diagonals starting at given index in each row, thus accounting for lower ones
         var numItems = 0; //reset the count for a new diagonal
-        for (i = 0; i < this.get('n'); i++) {
+        for (var i = 0; i < this.get('n'); i++) {
           if (i + extra >= this.get('n')) { //make sure we are not exceeding the size limit
             continue;
           }
@@ -161,7 +157,7 @@
     // test if any major diagonals on this board contain conflicts
     hasAnyMajorDiagonalConflicts: function() {
       var ans = false;
-      for (j = 0; j < this.get('n'); j++) {
+      for (var j = 0; j < this.get('n'); j++) {
         ans = this.hasMajorDiagonalConflictAt(j);
         if (ans === true) {
           return true;
@@ -180,7 +176,7 @@
       var extra = 0; //adding this varaible so I can start my loop on a lower down row if that is where the diagonal's top left corner is.
       while (extra < this.get('n')) { //checks all diagonals starting at given index in each row, thus accounting for lower ones
         var numItems = 0; //reset the count for a new diagonal
-        for (i = 0; i < this.get('n'); i++) {
+        for (var i = 0; i < this.get('n'); i++) {
           if (i + extra >= this.get('n')) { //make sure we are not exceeding the size limit
             continue;
           }
@@ -200,7 +196,7 @@
     // test if any minor diagonals on this board contain conflicts
     hasAnyMinorDiagonalConflicts: function() {
       var ans = false;
-      for (j = 0; j < this.get('n'); j++) {
+      for (var j = 0; j < this.get('n'); j++) {
         ans = this.hasMinorDiagonalConflictAt(j);
         if (ans === true) {
           return true;
