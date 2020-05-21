@@ -84,11 +84,7 @@ window.findNQueensSolution = function(n) {
     }
     solution[i] = row;
   }
-
   var board = new Board(solution);
-  // if (n === 2 || n === 3) {
-  //   return board;
-  // };
   var solver = (row) => {
     if (row === n) {
       return board;
