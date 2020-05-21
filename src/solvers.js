@@ -25,10 +25,11 @@ window.findNRooksSolution = function(n) {
     }
     solution[i] = row;
   }
-  console.log(solution);
+  //console.log(solution);
   var board = new Board(solution);
-  //[[1,0],
-  // [0,0]]
+  //[[1,0,0],
+  // [0,1,0]
+  // [0,0,1]]
   console.log('board ', board);
   var solver = (row) => {
     if (row === n) {
@@ -38,9 +39,9 @@ window.findNRooksSolution = function(n) {
     for (let index = 0; index < n; index++) {
       board.togglePiece(row, index);
       if (!board.hasAnyRooksConflicts()) {
-        solver(row + 1);
+        return solver(row + 1);
       }
-      //board.togglePiece(row, index);
+      board.togglePiece(row, index);
     }
   };
   solver(0);
@@ -67,13 +68,14 @@ window.countNRooksSolutions = function(n) {
       //console.log(board);
       //return board;
       solutionCount ++;
+      return;
     }
     for (let index = 0; index < n; index++) {
       board.togglePiece(row, index);
       if (!board.hasAnyRooksConflicts()) {
         solver(row + 1);
       }
-      //board.togglePiece(row, index);
+      board.togglePiece(row, index);
     }
   };
   solver(0);
